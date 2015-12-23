@@ -4,13 +4,10 @@ Cu.import('resource://gre/modules/Timer.jsm');
 
 var
 	i = 0,
-	// notifications = require("sdk/notifications"),
 	self = require('sdk/self'),
 	data = require('sdk/self').data,
 	tabs = require('sdk/tabs'),
 	prefs = require('sdk/simple-prefs').prefs,
-	// { Hotkey } = require("sdk/hotkeys");
-	// selection = require('sdk/selection'),
 	{ ActionButton } = require('sdk/ui/button/action'),
 
 	button = ActionButton({
@@ -18,7 +15,7 @@ var
 		label: 'open form with title, desc, price, how-many-tabs',
 		icon: './ico.png',
 		onClick: function(){
-			var worker = tabs.activeTab.attach({
+			var worker git remote add origin git@github.com:vitaly-zdanevich/vk-market-mahaon-prepare-tabs-with-title-desc-and-price.git= tabs.activeTab.attach({
 				contentScriptFile: './contentScript.js'
 			});
 			worker.port.emit('start'); // call 'start' in contentScript
