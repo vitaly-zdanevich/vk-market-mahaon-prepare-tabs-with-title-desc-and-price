@@ -29,7 +29,7 @@ var
 function fill(info) {
 	if (i < 20 && info.title.length > 0) {
 		var url = tabs.activeTab.url;
-		tabs.open(url); // TODO: why last tab opens but click not happening?
+		tabs.open(url);
 		var worker = tabs.activeTab.attach({
 			contentScriptFile: './contentScript.js'
 		});
