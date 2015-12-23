@@ -15,7 +15,7 @@ var
 		label: 'open form with title, desc, price, how-many-tabs',
 		icon: './ico.png',
 		onClick: function(){
-			var worker git remote add origin git@github.com:vitaly-zdanevich/vk-market-mahaon-prepare-tabs-with-title-desc-and-price.git= tabs.activeTab.attach({
+			var worker = tabs.activeTab.attach({
 				contentScriptFile: './contentScript.js'
 			});
 			worker.port.emit('start'); // call 'start' in contentScript
