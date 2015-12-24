@@ -1,6 +1,6 @@
 const { getMostRecentBrowserWindow } = require('sdk/window/utils');
 let { Cu } = require('chrome');
-Cu.import('resource://gre/modules/Timer.jsm');
+Cu.import('resource://gre/modules/Timer.jsm'); // without this will not work setTimer of usual js
 
 var
 	i = 0,
@@ -9,13 +9,14 @@ var
 	tabs = require('sdk/tabs'),
 	prefs = require('sdk/simple-prefs').prefs,
 	{ ActionButton } = require('sdk/ui/button/action'),
+	prefs = require('sdk/simple-prefs').prefs,
 
 	button = ActionButton({
 		id: 'button',
 		label: 'open form with title, desc, price, how-many-tabs',
 		icon: './ico.png',
 		onClick: function(){
-			var worker git remote add origin git@github.com:vitaly-zdanevich/vk-market-mahaon-prepare-tabs-with-title-desc-and-price.git= tabs.activeTab.attach({
+			var worker = tabs.activeTab.attach({
 				contentScriptFile: './contentScript.js'
 			});
 			worker.port.emit('start'); // call 'start' in contentScript
@@ -27,9 +28,9 @@ var
 ;
 
 function fill(info) {
-	if (i < 20 && info.title.length > 0) {
+	if (i < prefs.tabs && info.title.length > 0) {
 		var url = tabs.activeTab.url;
-		tabs.open(url); // TODO: why last tab opens but click not happening?
+		tabs.open(url);
 		var worker = tabs.activeTab.attach({
 			contentScriptFile: './contentScript.js'
 		});
@@ -37,7 +38,7 @@ function fill(info) {
 		setTimeout(function(){
 			i++;
 			fill(info);
-		}, 2000);	
+		}, 2000);
 	} else {
 		i = 0;
 	}

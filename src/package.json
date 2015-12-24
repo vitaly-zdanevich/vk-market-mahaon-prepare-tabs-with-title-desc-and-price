@@ -1,8 +1,14 @@
 {
   "title": "open tabs with prefilled data for adding product on VK-market",
   "name": "vk-market-mahaon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "id": "jid1-ac4GNZhdddbcz2Q0A@jetpack",
   "author": "Vitaly Zdanevich",
-  "license": "MPL 2.0"
+  "license": "MPL 2.0",
+  "preferences": [{
+    "name": "tabs",
+    "title": "tabs",
+    "type": "integer",
+    "value": 25
+  }]
 }
