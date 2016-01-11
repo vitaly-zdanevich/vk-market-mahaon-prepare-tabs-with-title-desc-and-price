@@ -1,0 +1,17 @@
+{
+  "name": "vk-mahaon-open-prefilled-tabs",
+  "version": "0.1",
+  "manifest_version" : 2,
+  "description": "script copies the title, desc and price from modal of adding new product and replicate with new tabs",
+  "page_action": {
+    "default_icon": "ico.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs",
+    "https://vk.com/*"
+  ]
+}
